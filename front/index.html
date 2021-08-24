@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>CryptoExcel2.0</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="index.css" />
+</head>
+
+<body>
+  <header>
+
+    <div class="header">
+
+      <div class="animation">
+
+        <div class="title">
+          <div>Wishk</div>
+          <div>Wallet</div>
+
+        </div>
+
+      </div>
+
+      <div class="total">
+
+        <input id="totalTheoricPnlBtn" type="button" class="btnBox" value="Show your theoric wallet value" onclick="hidderController();">
+
+        <div id="totalTheoricPnl">
+
+        </div>
+      </div>
+
+  </header>
+
+
+  <main>
+
+    <div class="separator">
+    </div>
+
+    <div class="baseWrapper">
+
+      <div class="box-border">
+        <div class="box columnTitle">Position</div>
+      </div>
+
+      <div class="box-border">
+        <div class="box columnTitle">Name </div>
+      </div>
+
+      <div class="box-border">
+        <div class="box columnTitle">Price</div>
+      </div>
+
+      <div class="box-border">
+        <div class="box columnTitle">DailyChange</div>
+      </div>
+
+      <div class="box-border">
+        <div class="box columnTitle">MarketCap</div>
+      </div>
+
+      <div class="box-border">
+        <div class="box columnTitle">24hVolume</div>
+      </div>
+
+      <div class="box-border">
+        <div class="box columnTitle">CirculatingSupply</div>
+      </div>
+
+      <div class="box-border">
+        <div class="box columnTitle">Invested</div>
+      </div>
+
+      <div class="box-border">
+        <div class="box columnTitle">Theoric Pnl</div>
+      </div>
+
+    </div>
+
+    <span id="data" class="wrapper">
+    </span>
+
+  </main>
+
+
+  <script src="dataManagement.js"></script>
+
+</body>
+
+</html>
