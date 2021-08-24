@@ -1,3 +1,4 @@
+<title> Crypto Crawler Wishk6</title>
 <h1> A FAIRE </h1> 
 <h2> Faire le front en Vue  </h2>
 <h2> Get les logos avec le back au lieu de les import à la main  </h2>
