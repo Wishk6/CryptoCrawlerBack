@@ -1,5 +1,5 @@
 <li> Crypto Crawler Wishk6</li>
-<h2>Run : <code> nodemon .\server.js</code></h2>
+<h2>Run : <code>npm i</code> before start.<code> nodemon .\server.js</code></h2>
 
 <h1> A FAIRE </h1> 
 <h2> Faire le front en Vue  </h2>
