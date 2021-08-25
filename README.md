@@ -1,4 +1,6 @@
 <li> Crypto Crawler Wishk6</li>
+<h2>Run : <code> nodemon .\server.js</code></h2>
+
 <h1> A FAIRE </h1> 
 <h2> Faire le front en Vue  </h2>
 <h2> Get les logos avec le back au lieu de les import à la main  </h2>
