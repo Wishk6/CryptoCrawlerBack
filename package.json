@@ -1,0 +1,25 @@
+{
+  "name": "testsitecrypto",
+  "version": "1.0.0",
+  "description": "cryptoCrawler",
+  "main": "apiFunc.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "wishk",
+  "license": "ISC",
+
+  "dependencies": {
+    "axios": "^0.21.1",
+    "cheerio": "^1.0.0-rc.9",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-list-endpoints": "^6.0.0",
+    "mysql": "^2.18.1",
+    "node-fetch": "^2.6.1"
+  },
+  
+  "devDependencies": {
+    "nodemon": "^2.0.13"
+  }
+}
