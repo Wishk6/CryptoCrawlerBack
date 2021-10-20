@@ -1,3 +1,4 @@
+const { cleanQuery } = require('../helpers/functions');
 const query = require('../helpers/functions');
 
 var helpers = {
@@ -61,41 +62,42 @@ makeUpdateSql(db, req, callback, tableName) {
             console.log("error updating");
             return callback("NO UPDATE");
         } else {
-            let query = "UPDATE " + tableName + " SET " + updateSend.join(" , ") + " WHERE "+ whereSend.join(" AND ");
-            return db.query(query, callback);
+            let query2 = "UPDATE " + tableName + " SET " + updateSend.join(" , ") + " WHERE "+ whereSend.join(" AND ");
+            return db.query(query2, callback);
         }
         // condition on the callback 
     },
 
     makeInsertSql(db, req, callback, tableName) {
-    //getting all our stuff in the body with some condition
-    var body = (typeof (req.body) != 'undefined') ? query.cleanQuery(req.body) : req;
-        var keys = [];
-        var values = [];
-        for (const [key, value] of Object.entries(body)) {
-            if (value != null && value != "") {
-                typeof value == "string"
-                    ? values.push("'" + value + "'")
-                    : typeof value == "int" ?
-                        values.push(value) : values.push("'" + JSON.stringify(value) + "'");
-                keys.push(key);
+        //getting all our stuff in the body with some condition
+        var body = (typeof (req.body) != 'undefined') ? cleanQuery(req.body) : req;
+       
+            var keys = [];
+            var values = [];
+            for (const [key, value] of Object.entries(body)) {
+                if (key=="allergen"||(value !== null && value !== "")) {
+                    typeof value == "string"
+                        ? values.push("'" + value + "'")
+                        : typeof value == "int" ?
+                            values.push(value) : values.push("'" + JSON.stringify(value) + "'");
+                    keys.push(key);
+                }
+    
             }
-        }
-        let query = "INSERT INTO " + tableName + " (" +
-            keys.join(",") +
-            ") VALUES  (" +
-            values.join(",") +
-            ")";
-
-        console.log("INSERT " + tableName + " QUERY ->", query);
-
-        return db.query(query, function(err, res){
-            if(err) {
-              return 1;
-           }
-     return 0
-        })
-    },
+    
+            let query = "INSERT INTO " + tableName + " (" +
+                keys.join(",") +
+                ") VALUES  (" +
+                values.join(",") +
+                ")";
+    
+            console.log("INSERT " + tableName + " QUERY ->", query);
+    
+            return db.query(query, function(err, res){
+                if(err) return callback(err);
+                else return callback(null, res);
+            })
+        },
 makeDeleteSql : function(db, req, callback, tableName){
         //getting all our stuff in the body with some condition
         var body = (typeof req.body != "undefined") ? query.cleanQuery(req.body) : req;

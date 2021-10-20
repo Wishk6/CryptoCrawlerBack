@@ -21,9 +21,7 @@ var query = {
                   (typeof value == "number" ) ? whereSend.push(key+" = "+value) : null;
                   (typeof value == "string" ) ? whereSend.push(key+" = '"+value+"'") : null;
                   (Array.isArray(value)) && value.length>0 ? whereSend.push(key+" IN("+value.join(",")+")") : null;
-  
               }
-  
           return whereSend
           }
   

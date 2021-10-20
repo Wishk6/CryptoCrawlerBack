@@ -93,7 +93,7 @@ var cryptoData = {
         } catch (err) {
             console.error(err);
         }
-        console.log(cryptoName, "price reloaded");
+        // console.log(cryptoName, "price reloaded");
         return cryptoObj;
     },
 

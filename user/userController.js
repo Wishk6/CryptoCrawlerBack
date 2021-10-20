@@ -29,5 +29,12 @@ router.post('/delete', function (req, res) {
         else res.json(rows);
     });
 });
+
+router.post('/login', function (req, res) {
+    userService.login(req, function(err, rows){
+        if(err) res.status(400).json(err);
+        else res.json(rows);
+    });
+});
  
 module.exports = router;
