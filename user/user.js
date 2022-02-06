@@ -5,10 +5,12 @@ var tableName = "user";
 
 var user = {
     get: function (req, callback) {
+        
         return helpers.makeWhereSql(db, req, callback, tableName);
     },
 
     insert: function (req, callback) {
+        req.body.role = "U";
         return helpers.makeInsertSql(db, req, callback, tableName);
     },
 
@@ -22,27 +24,21 @@ var user = {
     },
 
     login: function (req, callback) {
-
         let body = req.body;
         let email = body.email;
         let mdp = body.mdp;
-        console.log(body);
-        let request = {  where : {email: email} }
+        let request = { where: { email: email, mdp: mdp } }
         this.get(request, function (err, rows) {
-            if (err || rows == undefined ||rows.length == 0) {
-                return callback("Impossible de trouver l'user", null);
+            if (err || rows == undefined || rows.length == 0) {   // test row if not empty 
+                return callback("Impossible de trouver l'user",err,"test", null);
+            }
+            if (rows[0].mdp == mdp) {
+                return callback(null, rows);
             } else {
-                console.log(rows);
-                if (rows[0].mdp == mdp) {
-                    return callback(null, rows);
-                } else {
-                    return callback("Les mdp ne conviennent pas", null);
-                }
+                return callback("Please enter a password :)", null);
             }
         });
-
     },
-
 }
 
 module.exports = user;

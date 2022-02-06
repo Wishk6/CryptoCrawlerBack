@@ -15,12 +15,11 @@ app.use(function (req, res, next) {
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-//app.use(express.static('../front/')); //permet d'aller recuperer le front builder dans le dossier dist du back
 
 app.get('/', function (req, res) {
   res.sendFile(path.join("../front" + '/index.html'));
 });
-const slug = '/api/v1';
+const slug = '/api';
 var dataController = require('./data/dataController')
 app.use(slug + '/cryptoData', dataController);
 
